@@ -72,12 +72,12 @@ pred_s = md.render_graph(segments*scale,
 
 corr, comp, qual, TP_g, TP_p, FN, FP = md.corr_comp_qual(gt_s, 
                                                          pred_s, 
-                                                         slack=2)
+                                                         slack=8*scale)
 print("Corr-Comp-Qual: corr={:0.3f} comp={:0.3f} qual={:0.3f}\n".format(corr, comp, qual))
 
 # --------------------------------------------------
 correct, too_long, too_short, infeasible = md.toolong_tooshort(G_gt, G_pred, 
-                                                               n_paths=50, 
+                                                               n_paths=50, # to speed up this script
                                                                max_node_dist=25)
 print("2Long-2Short:   correct={:0.3f} 2l+2s={:0.3f} inf={:0.3f}\n".format(correct, too_long+too_short, infeasible))
 
@@ -92,10 +92,10 @@ f1, spurious, missings, \
 n_preds_sum, n_gts_sum, \
 n_spurious_marbless_sum, \
 n_empty_holess_sum = md.holes_marbles(G_gt, G_pred, 
-                                      spacing=20, 
+                                      spacing=10, 
                                       dist_limit=300,
                                       dist_matching=25,
-                                      N=50,
+                                      N=50,  # to speed up this script
                                       verbose=False) 
 print("Hole-Marbles:   spurious={:0.3f} missings={:0.3f} f1={:0.3f}\n".format(spurious, missings, f1))
 
@@ -104,10 +104,10 @@ f1, spurious, missings, \
 n_preds_sum, n_gts_sum, \
 n_spurious_marbless_sum, \
 n_empty_holess_sum = md.opt_g(G_gt, G_pred, 
-                              spacing=20, 
+                              spacing=10, 
                               dist_limit=300,
                               dist_matching=25,
-                              N=50,
+                              N=50,  # to speed up this script
                               verbose=False) 
 print("OPT-G:          spurious={:0.3f} missings={:0.3f} f1={:0.3f}\n".format(spurious, missings, f1))
 

@@ -289,7 +289,7 @@ def calcPathLength(p):
         prev=curr
     return l
     
-def new2l2s_v0(g, h, th_existing=10, th_snap=25):
+def new2l2s_v0(g, h, th_existing=1, th_snap=25):
 
     deduplicate_nodes(g)
     deduplicate_nodes(h)
@@ -468,7 +468,7 @@ def remove_self_loops(g):
 def f1_score(precision, recall):
     return 2*(precision*recall)/(precision+recall)        
 
-def opt_p(G_gt, G_pred, th_existing=10, th_snap=25):
+def opt_p(G_gt, G_pred, th_existing=1, th_snap=25):
     '''
     OPT-P metric
     

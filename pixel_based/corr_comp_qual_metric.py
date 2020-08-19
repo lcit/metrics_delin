@@ -13,7 +13,7 @@ def quality(corr, comp, eps=1e-12):
 def f1(corr, comp, eps=1e-12):
     return 2.0/(1.0/(corr+eps) + 1.0/(comp+eps))
 
-def relaxed_confusion_matrix(pred_s, gt_s, slack=3):
+def relaxed_confusion_matrix(pred_s, gt_s, slack=8):
     
     distances_gt = ndimage.distance_transform_edt((np.logical_not(gt_s)))
     distances_pred = ndimage.distance_transform_edt((np.logical_not(pred_s)))
@@ -38,7 +38,7 @@ def compute_scores(TP_g, TP_p, FN, FP, eps=1e-12):
     qual = quality(corr, comp)    
     return corr, comp, qual
 
-def corr_comp_qual(gt_s, pred_s, slack=3):
+def corr_comp_qual(gt_s, pred_s, slack=8):
     """
     Correctness Completeness Quality metric
     

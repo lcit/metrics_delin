@@ -55,7 +55,7 @@ def matching_with_snapping(junctions_g, junctions_pos_g, G, H, th_existing=1, th
         
     return matches, H_snap
 
-def twoway_matching(G, H, th_existing=0.2, th_snap=0.5, alpha=100):
+def twoway_matching(G, H, th_existing=1, th_snap=25, alpha=100):
 
     junctions_g = [n for n in G.nodes() if utils.is_control_nodes(G, n)]
     junctions_g_pos = np.array([G.nodes[n]['pos'] for n in junctions_g])
@@ -86,7 +86,7 @@ def compute_scores(tp, ap, pp):
     
     return f1, precision, recall
 
-def opt_j(G_gt, G_pred, th_existing=10, th_snap=25, alpha=100):
+def opt_j(G_gt, G_pred, th_existing=1, th_snap=25, alpha=100):
     '''
     OPT-J metric
     

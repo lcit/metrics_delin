@@ -12,7 +12,7 @@ from scipy.spatial.distance import cdist
 from .. import utils
 from .common import extract_subgraph, compute_quantities, compute_scores
             
-def node_matching_hungarian(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, dist_match=10):
+def node_matching_hungarian(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, dist_match=25):
     if len(nodes_gt)==0 or len(nodes_pred)==0:
         return [],[],[]
 
@@ -41,7 +41,7 @@ def node_matching_hungarian(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, 
 
     return  matched_pred_nodes, matched_gt_nodes, matches_gt_pred
 
-def node_matching_greedy(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, dist_match=10):
+def node_matching_greedy(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, dist_match=25):
     if len(nodes_gt)==0 or len(nodes_pred)==0:
         return [],[],[]
 

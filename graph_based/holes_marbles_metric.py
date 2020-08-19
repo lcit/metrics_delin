@@ -13,7 +13,7 @@ import scipy
 from .. import utils
 from .common import extract_subgraph, compute_quantities, compute_scores
 
-def naive_node_matching(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, dist_match=10):
+def naive_node_matching(nodes_gt, nodes_pos_gt, nodes_pred, nodes_pos_pred, dist_match=25):
     if len(nodes_gt)==0 or len(nodes_pred)==0:
         return []
     
