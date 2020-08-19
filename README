@@ -1,0 +1,48 @@
+# Better evaluation methods for road network reconstruction
+
+Implementation of the paper:
+
+```
+@article{Citraro19,
+    author = {Citraro, Leonardo and Koziński, Mateusz and Fua, Pascal},
+    year = {2019},
+    month = {11},
+    pages = {},
+    title = {Towards Reliable Evaluation of Road Network Reconstructions}
+}
+```
+
+Abstract:
+Existing performance measures rank delineation algorithms inconsistently, which makes it difficult to decide which one is best in any given situation. We show that these inconsistencies stem from design flaws that make the metrics insensitive to whole classes of errors. To provide more reliable evaluation, we design three new metrics that are far more consistent even though they use very different approaches to comparing ground-truth and reconstructed road networks. We use both synthetic and real data to demonstrate this and advocate the use of these corrected metrics as a tool to gauge future progress.
+
+Current evaluation metrics: 
+    - junction score 
+    - toolong-tooshort
+    - holes & marbles
+    - APLS 
+    - correctnes, completeness and quality
+    
+New evaluation metrics: 
+    - Junction based
+    - Path based
+    - Graph based
+
+## Prerequisites
+
+- numpy
+- scipy
+- imageio
+- networkx
+- sklearn
+- matplotlib
+
+## Installation
+add this to you python path
+```
+export PYTHONPATH="...location of this folder...:$PYTHONPATH"
+```
+
+## Usage
+check the examples in folder `examples`
+
+## License
