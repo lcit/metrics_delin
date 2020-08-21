@@ -57,18 +57,18 @@ print("OPT-J:          precision={:0.3f} recall={:0.3f} f1={:0.3f}\n".format(pre
 # --------------------------------------------------
 scale = 1/4
 segments = np.array([[G_gt.nodes[s]['pos'], G_gt.nodes[t]['pos']] for s,t in G_gt.edges()])
-gt_s = md.render_graph(segments*scale, 
-                       filename=None, 
-                       height=h*scale, 
-                       width=w*scale, 
-                       thickness=1)
+gt_s = md.render_segments(segments*scale, 
+                          filename=None, 
+                          height=h*scale, 
+                          width=w*scale, 
+                          thickness=1)
 
 segments = np.array([[G_pred.nodes[s]['pos'], G_pred.nodes[t]['pos']] for s,t in G_pred.edges()])
-pred_s = md.render_graph(segments*scale, 
-                         filename=None, 
-                         height=h*scale, 
-                         width=w*scale, 
-                         thickness=1)        
+pred_s = md.render_segments(segments*scale, 
+                            filename=None, 
+                            height=h*scale, 
+                            width=w*scale, 
+                            thickness=1)        
 
 corr, comp, qual, TP_g, TP_p, FN, FP = md.corr_comp_qual(gt_s, 
                                                          pred_s, 

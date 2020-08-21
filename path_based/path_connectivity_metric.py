@@ -468,7 +468,7 @@ def remove_self_loops(g):
 def f1_score(precision, recall):
     return 2*(precision*recall)/(precision+recall)        
 
-def opt_p(G_gt, G_pred, th_existing=1, th_snap=25):
+def opt_p(G_gt, G_pred, th_existing=10, th_snap=25):
     '''
     OPT-P metric
     
@@ -529,10 +529,10 @@ def opt_p(G_gt, G_pred, th_existing=1, th_snap=25):
     G_gt.remove_nodes_from(isolated_nodes) 
      
     n_conn_recall, n_inter_recall, \
-    con_prob_recall = new2l2s_v0(G_pred.copy(), G_gt.copy())
+    con_prob_recall = new2l2s_v0(G_pred.copy(), G_gt.copy(), th_existing, th_snap)
 
     n_conn_precis, n_inter_precis, \
-    con_prob_precis = new2l2s_v0(G_gt.copy(), G_pred.copy())
+    con_prob_precis = new2l2s_v0(G_gt.copy(), G_pred.copy(), th_existing, th_snap)
     
     con_prob_f1 = f1_score(con_prob_precis, con_prob_recall)
 

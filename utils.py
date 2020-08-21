@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import time
 
 __all__ = ["json_read", "json_write", "pickle_read", "pickle_write", 
-           "mkdir", "sort_nicely", "find_files", "render_graph", "interpolate_new_nodes",
+           "mkdir", "sort_nicely", "find_files", "render_segments", "interpolate_new_nodes",
            "plot_graph", "load_graph_txt", "save_graph_txt", "oversampling_graph",
            "shift_graph", "crop_graph", "length_path", "find_closest", 
            "uniform_node_sampling", "node_degree", "is_intersection", "is_end_point",
@@ -77,7 +77,7 @@ def find_files(file_or_folder, hint=None, recursive=False):
             filename_files.append(filename)                 
     return filename_files
         
-def render_graph(segments, filename=None, height=3072, width=3072, thickness=4):
+def render_segments(segments, filename=None, height=3072, width=3072, thickness=4):
     
     if isinstance(segments, np.ndarray):
         segments = segments.tolist()
