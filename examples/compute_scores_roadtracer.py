@@ -4,16 +4,15 @@ import numpy as np
 import argparse
 import multiprocessing
 
-#import metrics_delin as md
-import metrics_delin_github as md
+import metrics_delin as md
 
-base = "/cvlabdata2/home/citraro/exps/"
+base = "."
 path_gt = (base+"RoadTracer/data/graphs_output/gt", "*.graph")
 path_rt = (base+"RoadTracer/data/graphs_output/roadtracer", "*0.25_0.25.newreconnect.graph")
 path_seg = (base+"RoadTracer/data/graphs_output/segmentation/all", "*thr20.*.graph")
 path_drm = (base+"RoadTracer/data/graphs_output/deeproadmapper", "*fix.connected.graph")
-path_segp = (base+"delin/scores_comparison/agata_results/graphs_v2/", "*.graph")
-path_drcnn = (base+"delin/scores_comparison/deep_rcnn_unet/extracted_graphs_filtered/", "*th0.1.graph")  
+path_segp = (base+"seg_path/graphs/", "*.graph")
+path_drcnn = (base+"deep_rcnn_unet/graphs_filtered/", "*th0.1.graph")  
 
 methods = [["roadtracer", path_rt], 
            ["segmentation", path_seg], 
@@ -146,7 +145,7 @@ class TooLongTooShort(object):
     
 class OPTP(object):
     
-    def __init__(self, d=25):s
+    def __init__(self, d=25):
         self.d = d
         
     def compute(self, G_gt, G_pred, f_pred):
